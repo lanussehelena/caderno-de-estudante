@@ -1,24 +1,23 @@
 {% extends "modelo.html" %}
 {% block conteudo %}
-<h1>Glossário</h1>
+<h1>Lista de Tarefas</h1>
 
 <table class="table table-striped table-responsive table-bordered">
   <thead class="thead-default">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Termo</th>
-      <th scope="col">Definição</th>
-      <th scope="col">Ação</th>
+      <th scope="col">Tarefa</th>
+      <th scope="col">Descrição</th>
     </tr>
   </thead>
   <tbody>
-  {% for termo in glossario_de_termos %}
+  {% for tarefa in tarefas %}
     <tr>
       <th scope="row">{{ loop.index }}</th>
-      <td>{{ termo[0] }}</td>
-      <td>{{ termo[1] }}</td>
+      <td>{{ tarefa[0] }}</td>
+      <td>{{ tarefa[1] }}</td>
       <td>
-        <form method="post" action="{{ url_for('excluir_termo', termo_id=loop.index-1) }}">
+        <form method="post" action="{{ url_for('excluir_tarefa', tarefa_id=loop.index-1) }}">
         <button type="submit" class="btn btn-danger">Excluir</button>
         </form>
       </td>
